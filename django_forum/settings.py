@@ -31,6 +31,9 @@ SECRET_KEY = 'django-insecure-*06yj+&t!*n5ui&%i*nf$$r_+z$pb^gkdf_))5tw2vfsdyh1-!
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+X_FRAME_HOSTS = 'x'
+CORS_ORIGIN_ALLOW_ALL = True
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8000/']
 
 
 # Application definition
@@ -44,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'posts',
     'cloudinary',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -82,25 +86,25 @@ WSGI_APPLICATION = 'django_forum.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dck7a51qm9v56f',
-        'USER': 'wmcxpgyuhkzdjx',
-        'PORT': 5432,
-        'HOST': 'ec2-52-86-56-90.compute-1.amazonaws.com',
-        'PASSWORD': '7049e061a3a5d097b83b4569faa3de866a1cfc50a2905b2b5908d57e25c7fec8',
-    }
-}
-
-
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'dck7a51qm9v56f',
+#         'USER': 'wmcxpgyuhkzdjx',
+#         'PORT': 5432,
+#         'HOST': 'ec2-52-86-56-90.compute-1.amazonaws.com',
+#         'PASSWORD': '7049e061a3a5d097b83b4569faa3de866a1cfc50a2905b2b5908d57e25c7fec8',
 #     }
 # }
+
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # Password validation
